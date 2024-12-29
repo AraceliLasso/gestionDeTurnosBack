@@ -1,5 +1,5 @@
 interface IUsuario{
-    id:number,
+    id:string,
     nombre:string,
     email:string,
     active:boolean

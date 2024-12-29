@@ -1,13 +1,14 @@
 import UsuarioDto from "./dto/UsuarioDto";
-import IUsuario from "./interface/IUsuario"
+import IUsuario from "./interface/IUsuario";
+import { v4 as uuidv4 } from 'uuid';
 
 let usuarios: IUsuario[] = []
-let id: number = 1;
+
 export const crearUsuariosService = async (usuarioData: UsuarioDto): Promise<IUsuario> => {
     //recibir datos del usuario
     //crear nuevo usuario
     const nuevoUsuario: IUsuario = {
-        id,
+        id: uuidv4(),
         nombre: usuarioData.nombre,
         email: usuarioData.email,
         active: usuarioData.active
@@ -15,15 +16,14 @@ export const crearUsuariosService = async (usuarioData: UsuarioDto): Promise<IUs
     usuarios.push(nuevoUsuario);
     //incluir el nuevo usuario dentro del arreglo
     //retornar el objeto creado
-    id++;
-    return nuevoUsuario
+    return nuevoUsuario;
 }
 
 export const obtenerUsuariosService = async ():Promise<IUsuario[]> => {
     return usuarios;
 }
 
-export const borrarUsuariosService = async (id:number):Promise<void> => {
+export const borrarUsuariosService = async (id:string):Promise<void> => {
     usuarios = usuarios.filter((usuario:IUsuario)=>{
         return usuario.id !== id
     })
