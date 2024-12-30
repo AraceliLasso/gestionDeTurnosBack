@@ -3,13 +3,13 @@ import { borrarUsuarios, crearUsuarios, obtenerUsuarios } from "./usuariosContro
 import auth from "../middlewares/autenticacion";
 
 
-const router: Router = Router();
+const routerUsuario: Router = Router();
 
-router.get("/usuarios", auth, obtenerUsuarios)
+routerUsuario.get("/usuarios", auth, obtenerUsuarios)
 
-router.post("/usuarios", crearUsuarios)
+routerUsuario.post("/usuarios", crearUsuarios)
 
-router.delete("/usuarios", borrarUsuarios)
+routerUsuario.delete("/usuarios", borrarUsuarios)
 
 
 // GET /users => Obtener el listado de todos los usuarios.
@@ -20,4 +20,4 @@ router.delete("/usuarios", borrarUsuarios)
 
 // POST /users/login => Login del usuario a la aplicación.
 
-export default router;
+export default routerUsuario;

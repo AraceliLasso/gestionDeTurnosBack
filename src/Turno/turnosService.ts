@@ -11,17 +11,22 @@ export const obtenerTurnosService = async (): Promise<ITurno[]> => {
 export const crearTurnoService = async (turnoData: TurnoDto): Promise<ITurno> => {
     //recibir datos del turno
     //crear nuevo turno
-    const nuevoTurno:ITurno ={
-        id:uuidv4(),
-        fecha:turnoData.fecha,
-        estado:turnoData.estado,
-        especialidad:turnoData.especialidad,
-        profesional:turnoData.profesional,
-        paciente:turnoData.paciente,
-        medio:turnoData.medio
+    const nuevoTurno: ITurno = {
+        id: uuidv4(),
+        fecha: turnoData.fecha,
+        estado: turnoData.estado,
+        especialidad: turnoData.especialidad,
+        profesional: turnoData.profesional,
+        paciente: turnoData.paciente,
+        medio: turnoData.medio
     }
     turnos.push(nuevoTurno)
-     //incluir el nuevo turno dentro del arreglo
+    //incluir el nuevo turno dentro del arreglo
     //retornar el objeto creado
     return nuevoTurno;
+}
+export const borrarTurnosService = async (id: string): Promise<void> => {
+    turnos = turnos.filter((turno: ITurno) => {
+        return turno.id !== id
+    })
 }

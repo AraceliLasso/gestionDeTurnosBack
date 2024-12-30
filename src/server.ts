@@ -1,11 +1,12 @@
 import express from "express";
-import router from "./Usuario/usuariosRoutes";
-import path from "path";
+import routerUsuario from "./Usuario/usuariosRoutes";
+import routerTurno from "./Turno/turnosRoutes";
 
 
 const server = express();
 
 server.use(express.json())
-server.use(router);
+server.use(routerUsuario);
+server.use(routerTurno);
 
 export default server;

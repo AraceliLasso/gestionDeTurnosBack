@@ -2,22 +2,24 @@ import { Router } from "express";
 import { cancelarTurno, crearTurno, obtenerDetalleDeTurno, obtenerTurnos, obtenerTurnosUsuario } from "./turnosController";
 
 
-const router: Router = Router();
+const routerTurno: Router = Router();
 
 
 
-// GET /appointments => Obtener el listado de todos los turnos de todos los usuarios.
-router.get("/turnos", obtenerTurnos)
+//* GET /turnos => Obtener el listado de todos los turnos de todos los usuarios.
+routerTurno.get("/turnos", obtenerTurnos)
 
-// GET /appointments => Obtener el detalle de un turno específico.
-router.get("/turno/detalle", obtenerDetalleDeTurno)
+// GET /turnos => Obtener el detalle de un turno específico.
+routerTurno.get("/turno/detalle", obtenerDetalleDeTurno)
 
 //GET /turnos => Obtener listado de turnos por id de usuario
-router.get("/turnos/usuarioId", obtenerTurnosUsuario)
+routerTurno.get("/turnos/usuarioId", obtenerTurnosUsuario)
 
-// POST /appointments/schedule => Agendar un nuevo turno.
-router.post("/turno", crearTurno)
+//* POST /turnos/schedule => Agendar un nuevo turno.
+routerTurno.post("/turno", crearTurno)
 
-// PUT /appointments/cancel => Cambiar el estatus de un turno a “cancelled”.
-router.put("/turno/cancelar", cancelarTurno)
+//* PUT /turnos/cancel => Cambiar el estatus de un turno a “cancelled”.
+routerTurno.put("/turno/cancelar", cancelarTurno)
+
+export default routerTurno;
 
